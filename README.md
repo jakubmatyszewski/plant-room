@@ -46,7 +46,7 @@ arduino-cli compile --fqbn arduino:avr:uno MoistureSketch
 arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno MoistureSketch
 ```
 
-Use python to grab single read:
+Basic python script to grab single read:
 ```python3
 #!/usr/bin/env python3
 import serial
@@ -61,3 +61,6 @@ if __name__ == "__main__":
                         print(line)
                         break
 ```
+----
+
+I've also set up a [cronjob](./setup_cronjob.sh) on RaspberryPi, to let the script save results every 10 minutes.
