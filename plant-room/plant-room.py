@@ -4,6 +4,8 @@ from datetime import datetime as datetime
 import os
 import serial
 
+OUTPUT_FILE = os.getcwd() + '/results.csv'
+
 
 def convert_to_percent(value: int) -> int:
     WATER = 250  # 100%
@@ -13,11 +15,17 @@ def convert_to_percent(value: int) -> int:
 
 
 def write_to_csv(raw_value: int, percent_value: int) -> None:
-    with open(os.getcwd() + '/results.csv', 'a', newline='') as csvfile:
+    add_headers = False
+    if os.path.isfile(OUTPUT_FILE) is False:
+        add_headers = True
+
+    with open(OUTPUT_FILE, 'a') as csvfile:
         timestamp = datetime.strftime(datetime.now(), '%Y/%m/%d %H:%M:%S')
         fieldnames = ['timestamp', 'raw_value', 'percent_value']
 
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        if add_headers:
+            writer.writeheader()
         writer.writerow({'timestamp': timestamp,
                          'raw_value': raw_value,
                          'percent_value': percent_value})
@@ -34,7 +42,7 @@ if __name__ == "__main__":
             value = ser.readline().decode('utf-8').strip()
             if len(value) == 3:  # Sometimes first value is corrupted
                 measurement.append(int(value))
-    value = sum(measurement) / len(measurement)
+    value = int(sum(measurement) / len(measurement))
     percent = convert_to_percent(value)
     write_to_csv(value, percent)
     print(f'Plant hydrated in {percent}%. ({value})')
