@@ -64,4 +64,3 @@ if __name__ == "__main__":
 ----
 
 I've also set up a [cronjob](./setup_cronjob.sh) on RaspberryPi, to let the script save results every 10 minutes.
-In this case, remember to set `OUTPUT_FILE` as a absolute path to your file, otherwise data will end up in `~/results.csv`.

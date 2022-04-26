@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 import csv
-from datetime import datetime as datetime
 import os
+import logging
 import serial
+import statistics
+from datetime import datetime
 
-OUTPUT_FILE = os.getcwd() + '/results.csv'
+from db import add_to_db
+
+OUTPUT_FILE = os.path.dirname(__file__) + '/results.csv'
+WATER = 250  # 100%
+AIR = 500  # 0%
 
 
 def convert_to_percent(value: int) -> int:
-    WATER = 250  # 100%
-    AIR = 500  # 0%
     percent = 100 / WATER * (AIR - value)
     return round(percent, 2)
 
@@ -19,30 +23,45 @@ def write_to_csv(raw_value: int, percent_value: int) -> None:
     if os.path.isfile(OUTPUT_FILE) is False:
         add_headers = True
 
-    with open(OUTPUT_FILE, 'a') as csvfile:
-        timestamp = datetime.strftime(datetime.now(), '%Y/%m/%d %H:%M:%S')
-        fieldnames = ['timestamp', 'raw_value', 'percent_value']
+    timestamp = datetime.strftime(datetime.now(), '%Y/%m/%d %H:%M:%S')
+    data = {
+        'timestamp': timestamp,
+        'raw_value': raw_value,
+        'percent_value': percent_value
+    }
 
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    with open(OUTPUT_FILE, 'a') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=data.keys())
         if add_headers:
             writer.writeheader()
-        writer.writerow({'timestamp': timestamp,
-                         'raw_value': raw_value,
-                         'percent_value': percent_value})
+        writer.writerow(data)
 
 
 if __name__ == "__main__":
-    ser = serial.Serial('/dev/ttyACM0', 9600)
-    ser.flush()
+    try:
+        ser = serial.Serial('/dev/ttyACM0', 9600)
+    except OSError:
+        logging.critical("Unable to receive serial signal from the probe.")
+    else:
+        ser.flush()
 
-    measurement = []
-    # Get mean measurement of 3 readings.
-    while len(measurement) < 3:
-        if ser.in_waiting > 0:
-            value = ser.readline().decode('utf-8').strip()
-            if len(value) == 3:  # Sometimes first value is corrupted
-                measurement.append(int(value))
-    value = int(sum(measurement) / len(measurement))
-    percent = convert_to_percent(value)
-    write_to_csv(value, percent)
-    print(f'Plant hydrated in {percent}%. ({value})')
+        # Get median measurement of 5 readings.
+        measurement = []
+        while len(measurement) < 5:
+            if ser.in_waiting > 0:
+                try:
+                    value = int(ser.readline().decode('utf-8').strip())
+                except (UnicodeDecodeError, ValueError):
+                    # sensor reading fails, try again
+                    pass
+                else:
+                    # Sensor can read faulty values at times
+                    # so ignore all values outside of realistic range
+                    if value > WATER and value < AIR:
+                        measurement.append(value)
+        final_value = statistics.median(measurement)
+        percent = convert_to_percent(final_value)
+
+        write_to_csv(final_value, percent)
+        add_to_db(final_value, percent)
+        logging.info(f'Plant hydrated in {percent}%. ({final_value})')

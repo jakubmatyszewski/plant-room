@@ -4,7 +4,7 @@
 crontab -l > crontmp
 
 # Append crontmp with a new cronjob
-echo "*/10 * * * * python3 $(pwd)/plant-room.py" >> crontmp
+echo "*/10 * * * * python3 $(pwd)/plant-room/plant-room.py" >> crontmp
 
 # Set crontmp as a user's crontab
 crontab crontmp
