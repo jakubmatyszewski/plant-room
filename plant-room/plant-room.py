@@ -38,13 +38,7 @@ def write_to_csv(raw_value: int, percent_value: int) -> None:
 
 
 if __name__ == "__main__":
-    try:
-        ser = serial.Serial('/dev/ttyACM0', 9600)
-    except OSError:
-        logging.critical("Unable to receive serial signal from the probe.")
-    else:
-        ser.flush()
-
+    with serial.Serial('/dev/ttyACM0', 9600) as ser:
         # Get median measurement of 5 readings.
         measurement = []
         while len(measurement) < 5:
