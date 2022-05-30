@@ -36,7 +36,8 @@ void loop() {
   int val;
   val = analogRead(0); // connect sensor to Analog 0
   Serial.println(val); // print the value to serial port
-  delay(10); // 1000 = every second
+  Serial.flush();
+  delay(1000); // 1000 = every second
 }
 ```
 
