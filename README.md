@@ -62,6 +62,9 @@ if __name__ == "__main__":
                         print(line)
                         break
 ```
+
+It's important to avoid low probe delay. If the reading frequency is too high it will result in faster wearing out of the probe - it will corode faster.
+Examine your probe periodically to see if there are no signs of corosion - this might be the source of noisy readings!
 ----
 
 I've also set up a [cronjob](./setup_cronjob.sh) on RaspberryPi, to let the script save results every 10 minutes.
