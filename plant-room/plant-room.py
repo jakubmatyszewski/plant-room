@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
-import csv
-import os
 import logging
 import serial
 import statistics
-from datetime import datetime
 
-from db import add_to_db
+from db import add_to_db, write_to_csv
 
-OUTPUT_FILE = os.path.dirname(__file__) + '/results.csv'
 WATER = 250  # 100%
 AIR = 500  # 0%
 
@@ -16,25 +12,6 @@ AIR = 500  # 0%
 def convert_to_percent(value: int) -> int:
     percent = 100 / WATER * (AIR - value)
     return round(percent, 2)
-
-
-def write_to_csv(raw_value: int, percent_value: int) -> None:
-    add_headers = False
-    if os.path.isfile(OUTPUT_FILE) is False:
-        add_headers = True
-
-    timestamp = datetime.strftime(datetime.now(), '%Y/%m/%d %H:%M:%S')
-    data = {
-        'timestamp': timestamp,
-        'raw_value': raw_value,
-        'percent_value': percent_value
-    }
-
-    with open(OUTPUT_FILE, 'a') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=data.keys())
-        if add_headers:
-            writer.writeheader()
-        writer.writerow(data)
 
 
 if __name__ == "__main__":
