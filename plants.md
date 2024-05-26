@@ -8,6 +8,7 @@ Table of contents
 - [Kalanchoe fedtschenkoi\[?\]](#kalanchoe-fedtschenkoi)
 - [Sansevieria trifasciata](#sansevieria-trifasciata)
 - [Anthurium andraeanum](#anthurium-andraeanum)
+- [Tradescantia (spiderworm)](#tradescantia)
 
 <a name="pilea-peperomioides"></a>
 ## Pilea peperomioides (pieniążek)
@@ -30,11 +31,6 @@ Prefers bright, indirect light. It thrives in locations with ample natural light
 <details>
   <summary><i>Watering & humidity</i></summary>
 Pilea prefers moderately moist soil. Allow the top inch of soil to dry out between waterings to prevent overwatering, whichą can lead to root rot. It appreciates higher humidity levels, so misting the leaves occasionally or placing the plant near a humidifier can be beneficial, especially in drier environments.
-</details>
-
-<details>
-  <summary><i>Nutrients</i></summary>
-During the growing season (spring and summer), feed the plant with a balanced liquid fertilizer diluted to half strength once a month. During the dormant season (fall and winter), reduce fertilization or stop altogether.
 </details>
 
 <details>
@@ -66,11 +62,6 @@ Prefer consistently moist soil during the growing season (spring and summer) but
 </details>
 
 <details>
-  <summary><i>Nutrients</i></summary>
-Feed with a balanced liquid fertilizer diluted to half strength every two to four weeks during the growing season. Reduce or stop fertilization during the dormant season.
-</details>
-
-<details>
   <summary><i>Soil</i></summary>
 Well-draining potting soil is ideal for Spider Plants. A mix of standard potting soil with perlite or sand for added drainage works well. These plants also do well in hanging baskets with a lightweight, peat-based potting mix. Repotting every couple of years with fresh soil can help maintain their health.
 </details>
@@ -96,11 +87,6 @@ Prefers temperatures between 18°C to 27°C. They can tolerate slightly cooler t
 <details>
   <summary><i>Watering & humidity</i></summary>
 Keep the soil consistently moist but not waterlogged during the growing season (spring and summer). Allow the top inch of soil to dry out between waterings. Reduce watering frequency in the dormant season (fall and winter). These plants thrive in high humidity environments, so misting the leaves or placing the plant near a humidifier can be beneficial, especially indoors.
-</details>
-
-<details>
-  <summary><i>Nutrients</i></summary>
-Feed Monstera deliciosa with a balanced liquid fertilizer diluted to half strength every four to six weeks during the growing season. Reduce or stop fertilization during the dormant season. These plants are not heavy feeders but benefit from occasional supplementation.
 </details>
 
 <details>
@@ -132,11 +118,6 @@ Allow the soil to dry out partially between waterings, as Dracaena marginata pre
 </details>
 
 <details>
-  <summary><i>Nutrients</i></summary>
-Feed Dracaena marginata with a balanced liquid fertilizer diluted to half strength every four to six weeks during the growing season (spring and summer). Reduce or stop fertilization during the dormant season (fall and winter). These plants are not heavy feeders but benefit from occasional supplementation.
-</details>
-
-<details>
   <summary><i>Soil</i></summary>
 Well-draining potting soil with good aeration is essential. A mixture of standard potting soil with perlite or sand for added drainage works well. These plants are relatively tolerant of different soil types but prefer slightly acidic to neutral soil pH. Repot every couple of years with fresh soil.
 </details>
@@ -165,11 +146,6 @@ Needs a lot of moisture all year round. In summer, water it 2-3 times a week. It
 </details>
 
 <details>
-  <summary><i>Nutrients</i></summary>
-In summer and during the flowering period, feed every two weeks, but not too often (excessive fertilization may cause the leaves to turn brown and dry). Do not feed the plant from October to March.
-</details>
-
-<details>
   <summary><i>Soil</i></summary>
 A loose, fertile and moist mixture of humus soil and sand or peat is recommended. You can use universal soil as a base. 2 parts of such a substrate should be mixed with 1 part of perlite or other filler. Remember to choose universal soil with the right pH, i.e. slightly acidic.
 </details>
@@ -179,7 +155,7 @@ A loose, fertile and moist mixture of humus soil and sand or peat is recommended
 
 <details>
   <summary><i>Image</i></summary>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Spathiphyllum_floribundum_LIH.png/1024px-Spathiphyllum_floribundum_LIH.png" width=200/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Bryophyllum_fedtschenkoi_%28Habitus%29.jpg" width=200/>
 </details>
 
 <details>
@@ -195,11 +171,6 @@ Kalanchoe thrives in bright, indirect light but can also tolerate some direct su
 <details>
   <summary><i>Watering & humidity</i></summary>
 Allow the soil to dry out between waterings, then water thoroughly. During the growing season (spring and summer), water more frequently, but reduce watering in the dormant season (fall and winter). These plants are drought-tolerant but benefit from occasional misting in dry environments.
-</details>
-
-<details>
-  <summary><i>Nutrients</i></summary>
-Kalanchoe fedtschenkoi is not a heavy feeder. Feed it with a balanced liquid fertilizer diluted to half strength every two to four weeks during the growing season to support healthy growth and flowering. Reduce or stop fertilization during the dormant season.
 </details>
 
 <details>
@@ -232,11 +203,6 @@ Sansevieria are drought-tolerant and prefer to dry out between waterings. Water 
 </details>
 
 <details>
-  <summary><i>Nutrients</i></summary>
-Sansevieria are not heavy feeders and can thrive without regular fertilization.
-</details>
-
-<details>
   <summary><i>Soil</i></summary>
 Well-draining soil is essential for Sansevieria to prevent root rot. A mixture of cactus or succulent potting mix with perlite or sand for added drainage works well. These plants are adaptable to various soil types but prefer slightly acidic to neutral soil pH.
 </details>
@@ -265,11 +231,34 @@ Prefers consistently moist but not waterlogged soil. Water thoroughly when the t
 </details>
 
 <details>
-  <summary><i>Nutrients</i></summary>
-Feed every four to six weeks during the growing season (spring and summer) to promote healthy growth and flowering. Reduce or stop fertilization during the dormant season.
+  <summary><i>Soil</i></summary>
+Well-draining potting soil with good aeration is essential for Anthurium andraeanum to prevent root rot. A mixture of standard potting soil with perlite or orchid bark for added drainage works well. These plants also do well in a mixture of peat moss and perlite.
+</details>
+
+<a name="tradescantia"></a>
+## Tradescantia (Spiderwort)
+
+<details>
+  <summary><i>Image</i></summary>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Zebrina_pendula-xavier_cottage-yercaud-salem-India.JPG/440px-Zebrina_pendula-xavier_cottage-yercaud-salem-India.JPG" width=200/>
+</details>
+
+<details>
+  <summary><i>Light</i></summary>
+Spiderwort plants prefer bright, indirect light but can tolerate lower light conditions. They can thrive in a variety of light environments, though more vibrant light will enhance their leaf coloration. Direct sunlight should be avoided as it can scorch the leaves.
+</details>
+
+<details>
+  <summary><i>Temperature</i></summary>
+These plants prefer temperatures between 15°C to 24°C.
+</details>
+
+<details>
+  <summary><i>Watering & humidity</i></summary>
+Spiderwort prefers consistently moist soil but not waterlogged. Water thoroughly when the top inch of soil feels dry. They appreciate higher humidity levels, so misting the leaves occasionally or placing the plant near a humidifier can be beneficial, especially in dry indoor environments.
 </details>
 
 <details>
   <summary><i>Soil</i></summary>
-Well-draining potting soil with good aeration is essential for Anthurium andraeanum to prevent root rot. A mixture of standard potting soil with perlite or orchid bark for added drainage works well. These plants also do well in a mixture of peat moss and perlite.
+Tradescantia requires well-draining potting soil. These plants are adaptable to various soil types but prefer slightly acidic to neutral soil pH.
 </details>
