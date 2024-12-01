@@ -1,38 +1,39 @@
 #!/usr/bin/env python3
-import logging
 import serial
-import statistics
+import time
+from prometheus_client import start_http_server, Gauge
 
-from db import add_to_db, write_to_csv
+# WATER = 250  # 100%
+# AIR = 500  # 0%
+SERIAL_PORT = '/dev/ttyACM0'
+BAUD_RATE = 9600
+METRIC_PORT = 8000
 
-WATER = 250  # 100%
-AIR = 500  # 0%
+humidity_value = Gauge('humidity_value', 'Value read from the humidity sensor')
 
-
-def convert_to_percent(value: int) -> int:
-    percent = 100 / WATER * (AIR - value)
-    return round(percent, 2)
-
-
-if __name__ == "__main__":
-    with serial.Serial('/dev/ttyACM0', 9600) as ser:
-        # Get median measurement of 5 readings.
-        measurement = []
-        while len(measurement) < 5:
+def read_from_serial():
+    """Reads a number from the serial port."""
+    with serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1) as ser:
+        while True:
             if ser.in_waiting > 0:
                 try:
-                    value = int(ser.readline().decode('utf-8').strip())
-                except (UnicodeDecodeError, ValueError):
-                    # sensor reading fails, try again
-                    pass
-                else:
-                    # Sensor can read faulty values at times
-                    # so ignore all values outside of realistic range
-                    if value > WATER and value < AIR:
-                        measurement.append(value)
-        final_value = statistics.median(measurement)
-        percent = convert_to_percent(final_value)
+                    line = ser.readline().decode('utf-8').strip()
+                    if line.isdigit():
+                        value = int(line)
+                        print(f"Read value: {value}")
+                        
+                        # Update the Prometheus metric
+                        humidity_value.set(value)
+                    else:
+                        print(f"Received invalid data: {line}")
+                except Exception as e:
+                    print(f"Error reading serial: {e}")
+                time.sleep(55)
 
-        write_to_csv(final_value, percent)
-        add_to_db(final_value, percent)
-        logging.info(f'Plant hydrated in {percent}%. ({final_value})')
+if __name__ == "__main__":
+    # Start the Prometheus HTTP server
+    print(f"Starting Prometheus metrics server on port {METRIC_PORT}")
+    start_http_server(METRIC_PORT)
+    
+    # Read from the serial port and update metrics
+    read_from_serial()
